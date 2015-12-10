@@ -1,8 +1,8 @@
 :construction: Under construction :construction:
 
-### Lightbike is an asset budget auditing CLI tool
-Using Lightbike is easy. Most of the work is setting up your configs. Then you simple invoke the lightbike command
-`lightbike <pathtoconfig>/config.json`
+### Lightbike is an asset budget auditing tool
+Look a the `config-example.json` and create your own. 
+Then you simple invoke the lightbike command `lightbike <pathtoconfig>/config.json`
 
 Example output  
 ![alt tag](http://i.imgur.com/AhdOP20.jpg)
