@@ -7,6 +7,8 @@ Then you simply invoke the lightbike command `lightbike <pathtoconfig>/config.js
 Example output  
 ![alt tag](http://i.imgur.com/AhdOP20.jpg)
 
+Add the `--verbose` flag for extra fun. ex: `lightbike <pathtoconfig>/config.json --verbose`
+
 
 ### Installation
   - install chromedriver:     `brew install chromedriver`
