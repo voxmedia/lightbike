@@ -14,6 +14,7 @@ Example output
   - install lightbike:        `npm install voxmedia/lightbike -g`
 
 ### Develop:
+  - clone this repo and cd into it
   - `brew install chromedriver` (or any other selenium drivers + host browser)
   - `npm install tobli/browsertime -g` (sorry, it's a cli, thus needs manual global install)
   - `npm link` (symlink to binary so the cli is available while developing)
