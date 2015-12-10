@@ -10,9 +10,10 @@ Example output
 
 ### Installation
   - install chromedriver:     `brew install chromedriver`
-  - install browserser time:  `npm install browsertime -g`
+  - install browsersertime:   `npm install tobli/browsertime -g`
+  - install lightbike:        `npm install voxmedia/lightbike -g`
 
 ### Develop:
   - `brew install chromedriver` (or any other selenium drivers + host browser)
-  - `npm install browsertime -g` (sorry, it's a cli, thus needs manual global install)
+  - `npm install tobli/browsertime -g` (sorry, it's a cli, thus needs manual global install)
   - `npm link` (symlink to binary so the cli is available while developing)
