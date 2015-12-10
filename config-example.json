@@ -1,0 +1,34 @@
+{
+
+  "budgets": {
+    "html":     { "maxKB": "250"  },
+    "css":      { "maxKB": "150"  },
+    "js":       { "maxKB": "500"  },
+    "fonts":    { "maxKB": "200"  },
+    "images":   { "maxKB": "1000"  }
+  },
+
+  "sites": [
+
+    {
+      "protocolPrefix": "http://",
+      "base": "www.theverge.com",
+      "tests": [
+        {
+          "name": "homepage",
+          "path": "/",
+          "browserSize": "1920x1080"
+        },
+        {
+          "name": "homepage-6s",
+          "path": "/",
+          "browserSize": "414x736"
+        }
+      ],
+      "matchers": {
+        "fonts": "\\.woff|\\.ttf|typekit\\.com|typekit\\.net|typography\\.com|fonts\\.voxmedia\\.com"
+      }
+    }
+
+  ]
+}

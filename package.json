@@ -1,0 +1,21 @@
+{
+  "name": "lightbike",
+  "version": "1.0.0",
+  "description": "Website asset budget testing CLI",
+  "preferGlobal": true,
+  "bin": {
+    "lightbike": "lightbike.js"
+  },
+  "dependencies": {
+    "ascii-table": "0.0.8",
+    "fs-extra": "^0.26.2",
+    "sync-exec": "^0.6.2",
+    "underscore-node": "^0.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "TKTK"
+}
