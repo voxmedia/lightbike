@@ -4,6 +4,10 @@
 Using Lightbike is easy. Most of the work is setting up your configs. Then you simple invoke the lightbike command
 `lightbike <pathtoconfig>/config.json`
 
+Example output  
+![alt tag](http://i.imgur.com/AhdOP20.jpg)
+
+
 ### Installation
   - install chromedriver:     `brew install chromedriver`
   - install browserser time:  `npm install browsertime -g`
