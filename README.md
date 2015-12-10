@@ -9,6 +9,60 @@ Example output
 
 Add the `--verbose` flag for extra fun. ex: `lightbike <pathtoconfig>/config.json --verbose`
 
+### Config options
+```
+{
+
+  "budgets": {
+    "html":     { "maxKB": "250"  }, // < your html budget, represented as kilobytes
+    "css":      { "maxKB": "150"  },
+    "js":       { "maxKB": "500"  },
+    "fonts":    { "maxKB": "200"  },
+    "images":   { "maxKB": "1000"  }
+  },
+
+  "sites": [
+
+    {
+      "protocolPrefix": "http://",
+      "base": "www.theverge.com",  // < the base domain for the following tests
+      "tests": [
+
+        {
+          "name": "homepage",         // < *unique* test name
+          "path": "/",                // < path for this test, making the full url http://www.theverge.com/
+          "browserSize": "1920x1080"  
+        },
+        
+        {
+          "name": "homepage-custom-headers",  // < *unique* test name for another test
+          "path": "/",
+          "browserSize": "1920x1080",
+          "headers": {                        // < custom headers
+            "some-header": "header-value",
+            "other-header": "other-value"
+          }
+        },
+        
+        {
+          "name": "homepage-no-analytics",
+          "path": "/",
+          "browserSize": "1920x1080",
+          "block": ".*(google-analytics).*"  // < RegExp for blocking request, dots may need to be double escaped
+        }
+
+      ],
+
+      "matchers": {
+        "fonts": "\\.woff|\\.ttf|typekit\\.com"  // < Custom matcher RegExp for fonts, typekit uses base64 fonts
+      }
+
+    }
+
+  ]
+}
+```
+
 
 ### Installation
   - install chromedriver:     `brew install chromedriver`
