@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-
+var path = require('path');
 var _ = require('underscore-node');
 var execSync = require('sync-exec');
 var fse = require('fs-extra');
@@ -31,18 +31,11 @@ if (!execSync('which browsertime').stdout) {
   process.exit(1);
 }
 
-// Assume absolute path or handle two common cases
-if (configPath.match(/^\.+/)) {
-  // user passed a . relative path // eg ./config.json
-  configPath = __dirname + configPath.replace(/^\.+/, '');
-} else if (!configPath.match(/^\/+/)) {
-  // user passed only a file name // eg config.json
-  configPath = __dirname + '/' + configPath
-}
+
 
 // Setup
 fse.emptyDirSync("./tmp");
-var config = require(configPath);
+var config = require(path.resolve(configPath));
 var startTime = Date.now();
 var stats = scaffoldStats(config, startTime, __dirname);
 
