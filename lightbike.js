@@ -34,7 +34,7 @@ if (!execSync('which browsertime').stdout) {
 
 
 // Setup
-fse.emptyDirSync("./tmp");
+fse.emptyDirSync(__dirname + '/tmp');
 var config = require(path.resolve(configPath));
 var startTime = Date.now();
 var stats = scaffoldStats(config, startTime, __dirname);
