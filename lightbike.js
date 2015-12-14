@@ -31,6 +31,14 @@ if (!execSync('which browsertime').stdout) {
   process.exit(1);
 }
 
+// Assume absolute path or handle two common cases
+if (configPath.match(/^\.+/)) {
+  // user passed a . relative path // eg ./config.json
+  configPath = __dirname + configPath.replace(/^\.+/, '');
+} else if (!configPath.match(/^\/+/)) {
+  // user passed only a file name // eg config.json
+  configPath = __dirname + '/' + configPath
+}
 
 // Setup
 fse.emptyDirSync("./tmp");
