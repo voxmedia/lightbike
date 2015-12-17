@@ -127,6 +127,13 @@ In the not too distant future I hope to run Chrome via an invisible X display. M
 The tool only supports Chrome right now, unsure if there is a need to consider other browsers but it's definitely possible.
 
 
+### Imperfections
+
+- Lightbike sprinkles `browsermobproxy.log` and `browsertime.log` files into whatever directory in which it is run. Probably want to add those to your `.gitignore` - I hope to improve this very soon.
+- As mentioned, this is not a headless test but I would like to hide the browser when running tests in the near future. This would make it easier to hook Lightbike into some sort of automated tests via grunt/gulp watchers - if desired.
+- It's new. Let me know if something is broken / not quite right / needs a new feature.
+
+
 ### Develop:
   - clone this repo and cd into it
   - `brew install chromedriver` (or any other selenium drivers + host browser)
