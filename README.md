@@ -5,12 +5,12 @@
 Example output  
 ![alt tag](http://i.imgur.com/AhdOP20.jpg)
 
-### Installation
+### Install it
   - install chromedriver:     `brew install chromedriver`
   - install browsersertime:   `npm install tobli/browsertime -g`
   - install lightbike:        `npm install voxmedia/lightbike -g`
 
-
+### Use it
 Look a the `config-example.json` and create your own. 
 Then you simply invoke the lightbike command `lightbike <pathtoconfig>/config.json`
 
