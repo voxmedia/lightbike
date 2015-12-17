@@ -43,6 +43,7 @@ var stats = scaffoldStats(config, startTime, __dirname);
 // should be part of options hash
 var minWaitTime = 4000; // ms
 var WAITSCRIPT = 'return (function(){ if (typeof(LIGHTSTART) === "undefined") window.LIGHTSTART = (new Date).getTime(); if (((new Date).getTime() - LIGHTSTART) > ' + minWaitTime + ') return true; })()';
+var logDir = path.resolve(__dirname + '/tmp');
 
 
 // the magic
@@ -54,6 +55,7 @@ _.each(stats, function(stat) {
     " --filename  " + stats[stat.name].timings,
     " --harFile " + stats[stat.name].har,
     " --waitScript '" + WAITSCRIPT + "'",
+    " --logDir " + logDir
   ].join('');
 
   if (stat.headers) cmd += " --headers " + "'" + stat.headers + "'";
