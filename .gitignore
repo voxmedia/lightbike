@@ -6,3 +6,6 @@ config-test.json
 config-block.json
 config.json
 TODO.txt
+tmp/*
+report.txt
+browsertime-results/*

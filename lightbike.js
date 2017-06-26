@@ -39,7 +39,6 @@ var config = require(path.resolve(configPath));
 var startTime = Date.now();
 var stats = scaffoldStats(config, startTime, __dirname);
 
-
 // should be part of options hash
 var minWaitTime = 4000; // ms
 var WAITSCRIPT = 'return (function(){ if (typeof(LIGHTSTART) === "undefined") window.LIGHTSTART = (new Date).getTime(); if (((new Date).getTime() - LIGHTSTART) > ' + minWaitTime + ') return true; })()';
@@ -48,24 +47,25 @@ var logDir = path.resolve(__dirname + '/tmp');
 
 // the magic
 _.each(stats, function(stat) {
-  console.log('Testing ' + stat.name);
+  console.log('Testing ' + stat.base + ' ' + stat.name);
 
   var cmd = [
-    "browsertime -u " + stat.url + " -n 1 -w " + stat.browserSize,
-    " --filename  " + stats[stat.name].timings,
-    " --harFile " + stats[stat.name].har,
-    " --waitScript '" + WAITSCRIPT + "'",
-    " --logDir " + logDir
+    "browsertime " + stat.url + " -n 1 -viewPort " + stat.browserSize,
+    " --resultDir " + logDir,
+    " --logDir " + logDir,
+    " --output " + stats[stat.key].timings,
+    " --har " + stats[stat.key].har,
+    " --waitScript '" + WAITSCRIPT + "'"
   ].join('');
 
   if (stat.headers) cmd += " --headers " + "'" + stat.headers + "'";
   if (stat.block) cmd += " --blacklist " + "'" + stat.block + "'";
 
-  if (verbose) {
-    console.log();
-    console.log(cmd);
-    console.log();
-  }
+  // if (verbose) {
+  //   console.log();
+  //   console.log(cmd);
+  //   console.log();
+  // }
 
   execSync(cmd, 120000);
 
