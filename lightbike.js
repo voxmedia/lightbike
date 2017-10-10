@@ -22,7 +22,7 @@ var verbose = userArgs[1] && userArgs[1].match('verbose')
 if (!configPath) {
   console.log('Please specify a config file.');
   console.log('Example: $ lightbike /some/path/config.json');
-  console.log('View an example config at ' + __dirname + '/config-example.json');
+  console.log('View an example config at ' + baseDir + '/config-example.json');
   process.exit(1);
 }
 
@@ -34,15 +34,16 @@ if (!execSync('which browsertime').stdout) {
 
 
 // Setup
-fse.emptyDirSync(__dirname + '/tmp');
+var baseDir=process.cwd();//use current directory
+fse.emptyDirSync(baseDir + '/tmp');
 var config = require(path.resolve(configPath));
 var startTime = Date.now();
-var stats = scaffoldStats(config, startTime, __dirname);
+var stats = scaffoldStats(config, startTime, baseDir);
 
 // should be part of options hash
 var minWaitTime = 4000; // ms
 var WAITSCRIPT = 'return (function(){ if (typeof(LIGHTSTART) === "undefined") window.LIGHTSTART = (new Date).getTime(); if (((new Date).getTime() - LIGHTSTART) > ' + minWaitTime + ') return true; })()';
-var logDir = path.resolve(__dirname + '/tmp');
+var logDir = path.resolve(baseDir + '/tmp');
 
 
 // the magic
